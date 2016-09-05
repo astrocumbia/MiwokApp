@@ -30,18 +30,36 @@ public class Word {
         this.imageResourceId = imageResourceId;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation, int mImageResourceId) {
+    public int getSongResourceId() {
+        return songResourceId;
+    }
+
+    public void setSongResourceId(int songResourceId) {
+        this.songResourceId = songResourceId;
+    }
+
+
+    public Word(String defaultTranslation, String miwokTranslation, int mImageResourceId, int mSongResourceId) {
         setDefaultTranslation(defaultTranslation);
         setMiwokTranslation(miwokTranslation);
         setImageResourceId(mImageResourceId);
+        setSongResourceId(mSongResourceId);
+    }
+
+    public Word(String defaultTranslation, String miwokTranslation, int mImageResourceId) {
+        this(defaultTranslation, miwokTranslation, mImageResourceId, -1);
     }
 
     public Word(String defaultTranslation, String miwokTranslation) {
-        this(defaultTranslation, miwokTranslation, -1);
+        this(defaultTranslation, miwokTranslation, -1, -1);
     }
 
     public boolean hasImage() {
         return imageResourceId == -1? false: true;
+    }
+
+    public boolean hasSong()  {
+        return songResourceId == -1? false: true;
     }
 
     private String mDefaultTranslation;
@@ -49,5 +67,8 @@ public class Word {
     private String mMiwokTranslation;
 
     private int imageResourceId;
+
+
+    private int songResourceId;
 
 }
